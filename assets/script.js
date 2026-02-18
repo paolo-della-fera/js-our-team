@@ -40,11 +40,6 @@ const teamMembers = [
 
 // mi prendo il nodo del dom da modificare 
 const rowEl = document.querySelector('.row');
-const formEl = document.getElementById('add-member')
-const nameFieldEl = document.getElementById('name')
-const roleFieldEl = document.getElementById('role')
-const emailFieldEl = document.getElementById('email')
-const imageFieldEl = document.getElementById('image')
 // console.log(rowEl)
 
 
@@ -59,10 +54,10 @@ function renderTeam(teamMembers, rowEl) {
       <div class="col">
         <div class="card text-bg-dark mb-3">
           <div class="row g-0">
-            <div class="col-md-4">
+            <div class="col-4">
               <img src="${img}" class="img-fluid rounded-start" alt="">
             </div>
-            <div class="col-md-8">
+            <div class="col-8">
               <div class="card-body">
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">${role}</p>
