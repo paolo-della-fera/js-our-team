@@ -40,10 +40,17 @@ const teamMembers = [
 
 // mi prendo il nodo del dom da modificare 
 const rowEl = document.querySelector('.row');
+const formEl = document.getElementById('add-member')
+const nameFieldEl = document.getElementById('name')
+const roleFieldEl = document.getElementById('role')
+const emailFieldEl = document.getElementById('email')
+const imageFieldEl = document.getElementById('image')
 // console.log(rowEl)
 
 
 function renderTeam(teamMembers, rowEl) {
+
+  rowEl.innerHTML = ''
 
   for (let i = 0; i < teamMembers.length; i++) {
     const members = teamMembers[i];
@@ -74,3 +81,26 @@ function renderTeam(teamMembers, rowEl) {
 
 }
 renderTeam(teamMembers, rowEl);
+
+
+
+formEl.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const name = nameFieldEl.value;
+  const email = emailFieldEl.value;
+  const role = roleFieldEl.value;
+  const image = imageFieldEl.value;
+
+  const newMemberTeam = {
+    name,
+    role,
+    email,
+    img: image
+  };
+
+  teamMembers.push(newMemberTeam);
+  
+  renderTeam(teamMembers, rowEl);
+  
+});
