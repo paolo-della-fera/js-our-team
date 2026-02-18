@@ -40,39 +40,42 @@ const teamMembers = [
 
 // mi prendo il nodo del dom da modificare 
 const rowEl = document.querySelector('.row');
+const formEl = document.getElementById('add-member')
+const nameFieldEl = document.getElementById('name')
+const roleFieldEl = document.getElementById('role')
+const emailFieldEl = document.getElementById('email')
+const imageFieldEl = document.getElementById('image')
 // console.log(rowEl)
 
 
-for (let i = 0; i < teamMembers.length; i++) {
-  const members = teamMembers[i];
-  // console.log(members);
+function renderTeam(teamMembers, rowEl) {
 
-  // creo la variabile effettuando il destructuring delle proprietà dell'array di oggetti
-  const { name, role, email, img } = members
-  // console.log(name, role, email, img)
+  for (let i = 0; i < teamMembers.length; i++) {
+    const members = teamMembers[i];
 
-  // creo la variabile che contine il mio markup
-  const markup = `
-  <div class="col">
-  <div class="card text-bg-dark mb-3">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="${img}" class="img-fluid rounded-start" alt="">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">${name}</h5>
-          <p class="card-text">${role}</p>
-          <p class="card-text text-primary">${email}</p>
+    const { name, role, email, img } = members;
+
+    const markup = `
+      <div class="col">
+        <div class="card text-bg-dark mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="${img}" class="img-fluid rounded-start" alt="">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">${name}</h5>
+                <p class="card-text">${role}</p>
+                <p class="card-text text-primary">${email}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-    </div>
- </div>
-  `
-  //console.log(markup)
+    `;
 
-  // stampo in automatico le card in pagina
-  rowEl.innerHTML += markup
+    rowEl.innerHTML += markup;
+  }
 
 }
+renderTeam(teamMembers, rowEl);
