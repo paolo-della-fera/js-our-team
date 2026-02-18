@@ -36,3 +36,8 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+
+// mi prendo il nodo del dom da modificare 
+const rowEl = document.querySelector('.row');
+// console.log(rowEl)
